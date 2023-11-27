@@ -47,6 +47,8 @@
 
 - Added Histogram calculation
 
+  - <https://github.com/georust/gdal/pull/468>
+
 ## 0.16
 
 - **Breaking**: `Dataset::close` now consumes `self`
