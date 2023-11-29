@@ -45,7 +45,7 @@
 
   - <https://github.com/georust/gdal/pull/439>
 
-- Added Histogram calculation
+- Added histogram calculation
 
   - <https://github.com/georust/gdal/pull/468>
 
