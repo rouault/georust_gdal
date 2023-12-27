@@ -88,9 +88,9 @@ pub use types::{AdjustedValue, GdalDataType, GdalType};
 pub use warp::reproject;
 
 mod buffer;
+pub mod dem;
 #[cfg(all(major_ge_3, minor_ge_1))]
 mod mdarray;
-pub mod processing;
 mod rasterband;
 mod rasterize;
 #[cfg(test)]
