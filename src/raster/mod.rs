@@ -85,7 +85,6 @@ pub use rasterband::{
 };
 pub use rasterize::{rasterize, BurnSource, MergeAlgorithm, OptimizeMode, RasterizeOptions};
 pub use types::{AdjustedValue, GdalDataType, GdalType};
-pub use warp::reproject;
 
 mod buffer;
 pub mod dem;
@@ -96,7 +95,7 @@ mod rasterize;
 #[cfg(test)]
 mod tests;
 mod types;
-mod warp;
+pub mod warp;
 
 /// Key/value pair for passing driver-specific creation options to
 /// [`Driver::create_with_band_type_wth_options`](crate::Driver::create_with_band_type_with_options`).
