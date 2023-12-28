@@ -3,7 +3,7 @@
 ## Unreleased
 
 - **Breaking**: Moved `raster::processing::dem` to `raster::dem`
-- **Breaking**: Moved `raster::reproject` to `raster::warp::reproject_image` and added more extensive options
+- **Breaking**: Moved `raster::reproject` to `raster::warp::reproject_into` and added more options
 - Added `raster::warp::create_and_reproject_image`.
 
 - Added `Feature::unset_field`
