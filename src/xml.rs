@@ -5,9 +5,11 @@ use std::str::FromStr;
 
 use gdal_sys::{
     CPLCloneXMLTree, CPLDestroyXMLNode, CPLErr, CPLParseXMLString, CPLSerializeXMLTree, CPLXMLNode,
+    VSIFree,
 };
 
 use crate::utils::_last_cpl_err;
+use crate::utils::_string;
 
 /// An XML node, as captured from GDAL serialization APIs.
 pub struct GdalXmlNode(NonNull<CPLXMLNode>);
@@ -59,8 +61,12 @@ impl FromStr for GdalXmlNode {
 
 impl Display for GdalXmlNode {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        let s = unsafe { CString::from_raw(CPLSerializeXMLTree(self.as_ptr_mut())) };
-        f.write_str(s.to_string_lossy().trim_end())
+        let native_string = unsafe { CPLSerializeXMLTree(self.as_ptr()) };
+        let s = _string(native_string);
+        unsafe {
+            VSIFree(native_string.cast::<std::ffi::c_void>());
+        }
+        f.write_str(s.trim_end())
     }
 }
 
